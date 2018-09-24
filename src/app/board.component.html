@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="col-md-9">
+        <div class="row" *ngFor="let row of rows">
+            <position-component *ngFor="let position of positions" positionValue="{{position}}"></position-component>
+        </div>
+    </div>
+    <number-selector></number-selector>
+</div>
