@@ -1,7 +1,10 @@
 <div class="row">
-    <div class="col-md-9">
-        <div class="row" *ngFor="let row of rows">
-            <position-component *ngFor="let position of positions" positionValue="{{position}}"></position-component>
+    <button class="btn btn-primary" (click)="generatePuzzle()">Generate</button>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="row" *ngFor="let row of rowsLength; let rowIndex = index">
+            <position-component *ngFor="let position of positions | slice:rowIndex*rowsLength.length:(rowIndex*rowsLength.length)+rowsLength.length" positionValue="{{position}}"></position-component>
         </div>
     </div>
     <number-selector></number-selector>

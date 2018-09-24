@@ -2,7 +2,11 @@ import { Injectable } from "@angular/core";
 import { PositionComponent } from "./position.component";
 
 @Injectable()
-export class GameService{
+export class GameService {
+    generateNewPuzzle(arrayLength: number, numberRange: number): Array<number> {
+        console.log("Generate new puzzle");
+        return Array.from(new Array(arrayLength), () => Math.ceil(Math.random() * numberRange));
+    }
     setSelectedPositionValue(positionValue: number) {
         this.selectedPosition.value = positionValue;
         console.log("Changed position value: " + positionValue);

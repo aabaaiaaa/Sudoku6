@@ -9,8 +9,12 @@ export class BoardComponent{
 
     constructor(private gameService:GameService){}
 
-    rows = new Array(1,2,3,4,5,6,7,8,9);
-    positions = new Array(1,2,3,4,5,6,7,8,9);
+    rowsLength = new Array(9);
+    positions = new Array<number>(81);
 
-    
+    generatePuzzle(){
+        var positionValueArray = this.gameService.generateNewPuzzle(81, 9);
+        this.positions = positionValueArray;
+        console.log(positionValueArray);
+    }
 }
