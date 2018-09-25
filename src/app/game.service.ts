@@ -39,16 +39,17 @@ export class GameService {
                 var positionValue = puzzleArray[i];
                 var numberToTest = nextNumber(positionValue);
                 puzzleArray[i] = numberToTest;
-                if (numberInRow(numberToTest, i, puzzleArray)){ 
+                if (numberInRow(numberToTest, i, puzzleArray)) {
                     // try another number
                     continue;
                 }
-                if (numberInColumn(numberToTest, i, puzzleArray)){
+                if (numberInColumn(numberToTest, i, puzzleArray)) {
                     // try another number
                     continue;
                 }
-                retries = 10;
+                break;
             }
+            if (retries == 10) i = i - 2;  // change previous number to another valid value to free up another valid option for this position
         }
         return puzzleArray;
     }
