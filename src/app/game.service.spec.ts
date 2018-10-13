@@ -66,12 +66,27 @@ describe('game service', () => {
 
     describe('3x3 grid check functionality', () => {
         let numberInGrid = gameService.numberInGrid(3, 9);
+        let partialGridArray = [, 2, 3, , , , , , 0]
+                .concat([4, 5, 6, , , , , , 0])
+                .concat([7, 8, , , , , , , 0]);
 
         it('should find the number', () => {
-
+            let actualValue = numberInGrid(5, 0, partialGridArray);
+            expect(actualValue).toBe(true);
+            actualValue = numberInGrid(5, 20, partialGridArray);
+            expect(actualValue).toBe(true);
         })
-        it("shouldn't find the number", () => {
 
+        partialGridArray = [, 2, 3, , , , , , 0]
+                .concat([4, , 6, , , , , , 0])
+                .concat([7, 8, , , , , , , 0]);
+        it("shouldn't find the number", () => {
+            let actualValue = numberInGrid(5, 0, partialGridArray);
+            expect(actualValue).toBe(false);
+            actualValue = numberInGrid(1, 10, partialGridArray);
+            expect(actualValue).toBe(false);
+            actualValue = numberInGrid(9, 20, partialGridArray);
+            expect(actualValue).toBe(false);
         })
     });
 });

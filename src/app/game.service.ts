@@ -74,7 +74,7 @@ export class GameService {
 
     numberInGrid(gridSize: number, numberRange: number) {
         return (numberToTest: number, index: number, array: Array<number>): boolean => {
-            var numberFound = false;
+            var numberFound = this.numberInRow(numberRange)(numberToTest, index, array);
             return numberFound;
         };
     }
